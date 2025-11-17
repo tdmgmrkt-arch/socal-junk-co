@@ -1,36 +1,181 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# SoCal Junk Co - Professional Junk Removal Website
+
+A modern, fully responsive website for SoCal Junk Co - a professional junk removal and hauling service based in Anaheim, California.
+
+## Features
+
+- **6 Complete Pages**: Home, Services, About, Pricing, Contact, Service Areas
+- **Modern Design**: Black, white, and gold color scheme with professional aesthetics
+- **Fully Responsive**: Mobile-first design that works perfectly on all devices
+- **SEO Optimized**: Proper metadata, semantic HTML, structured headings, and sitemap
+- **Performance Optimized**: Next.js Image optimization, fast load times
+- **Validated Contact Form**: Built with react-hook-form and Zod validation
+- **Accessibility**: ARIA labels, semantic HTML, keyboard navigation support
+
+## Tech Stack
+
+- **Framework**: Next.js 16.0.3 (App Router)
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS v4
+- **UI Components**: shadcn/ui
+- **Icons**: lucide-react
+- **Form Validation**: react-hook-form + Zod
+- **Deployment Ready**: Optimized for Vercel, Netlify, or any Node.js hosting
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
 
+- Node.js 18+ installed
+- npm or yarn package manager
+
+### Installation
+
+1. Install dependencies:
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Run the development server:
+```bash
+npm run dev
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+3. Open [http://localhost:3000](http://localhost:3000) in your browser
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Build for Production
 
-## Learn More
+```bash
+npm run build
+npm start
+```
 
-To learn more about Next.js, take a look at the following resources:
+## Project Structure
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```
+socal-junk-co/
+├── app/                      # Next.js App Router pages
+│   ├── page.tsx             # Home page
+│   ├── services/            # Services page
+│   ├── about/               # About page
+│   ├── pricing/             # Pricing page
+│   ├── contact/             # Contact page
+│   ├── service-areas/       # Service Areas page
+│   ├── layout.tsx           # Root layout with Header/Footer
+│   ├── globals.css          # Global styles and theme
+│   ├── sitemap.ts           # Dynamic sitemap generation
+│   └── robots.ts            # Robots.txt configuration
+├── components/              # Reusable components
+│   ├── ui/                  # shadcn/ui components
+│   ├── layout/              # Layout components (Header, Footer)
+│   └── ContactForm.tsx      # Validated contact form
+├── lib/                     # Utility functions
+│   └── utils.ts             # shadcn/ui utilities
+└── public/                  # Static assets
+    ├── socaljunkcologo.png
+    └── placeholderimage.webp
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Pages Overview
+
+### 1. Home (`/`)
+- Attention-grabbing hero section with CTA buttons
+- "Why Choose Us" feature cards
+- Services overview with images
+- "How It Works" process steps
+- Customer testimonials
+- Final CTA section
+
+### 2. Services (`/services`)
+- Service offerings grid (6 services)
+- "What We Take" comprehensive list
+- Process explanation
+- Full service descriptions
+
+### 3. About (`/about`)
+- Company story and mission
+- Key statistics
+- Core values
+- Why choose us details
+
+### 4. Pricing (`/pricing`)
+- 4 pricing tiers (Small, Medium, Large, Full Load)
+- Pricing factors explanation
+- Additional services
+- Price guarantee
+
+### 5. Contact (`/contact`)
+- Contact information cards
+- Validated contact form (name, email, phone, message)
+- Quick contact options
+- FAQ section
+
+### 6. Service Areas (`/service-areas`)
+- Primary service areas (8 cities)
+- Extended service areas (20+ cities)
+- Service features
+- Coverage details
+
+## SEO Features
+
+- Unique page titles and meta descriptions
+- Open Graph tags for social sharing
+- Structured heading hierarchy (H1, H2, H3)
+- Alt text on all images
+- Semantic HTML elements
+- XML sitemap at `/sitemap.xml`
+- Robots.txt configuration
+
+## Color Palette
+
+- **Primary**: Black (#000000)
+- **Secondary**: White (#FFFFFF)
+- **Accent/Gold**: #D4AF37
+- **Gold Dark**: #B8941F
+- **Gold Light**: #F4E5B0
+
+## Customization
+
+### Update Logo
+Replace `/public/socaljunkcologo.png` with your company logo
+
+### Update Images
+Replace `/public/placeholderimage.webp` with your actual images
+
+### Update Contact Information
+Update phone numbers and email addresses in:
+- `/components/layout/Header.tsx`
+- `/components/layout/Footer.tsx`
+- `/app/contact/page.tsx`
+
+### Update Service Areas
+Modify city lists in `/app/service-areas/page.tsx`
+
+### Update Sitemap
+Edit `/app/sitemap.ts` to update URLs and priorities
+
+## Browser Support
+
+- Chrome (latest)
+- Firefox (latest)
+- Safari (latest)
+- Edge (latest)
+- Mobile browsers (iOS Safari, Chrome Mobile)
+
+## Performance
+
+- Optimized images with next/image
+- Static page generation
+- Minimal JavaScript bundle size
+- Fast initial page load
 
 ## Deploy on Vercel
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new).
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Check out the [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+---
+
+Built with Next.js, TypeScript, and Tailwind CSS
+"# socal-junk-co" 
