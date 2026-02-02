@@ -1,0 +1,39 @@
+# SoCal Junk Co
+
+> Professional junk removal and hauling services in Anaheim and throughout Southern California.
+
+## About
+
+SoCal Junk Co is a locally owned junk removal company serving Anaheim, Orange County, and Southern California. We provide fast, reliable, and eco-friendly junk removal services for residential and commercial properties.
+
+## Services
+
+- Residential Junk Removal: Garage cleanouts, estate cleanouts, foreclosure cleanouts, storage unit cleanouts, general household junk removal, moving assistance
+- Commercial Junk Removal: Office furniture removal, retail store cleanouts, construction debris removal, warehouse cleanouts, renovation debris
+- Furniture Removal: Couches, sofas, beds, mattresses, tables, chairs, dressers, cabinets, office furniture, outdoor furniture
+- Appliance Removal: Refrigerators, freezers, washers, dryers, stoves, ovens, dishwashers, water heaters, air conditioners
+- Yard Waste Removal: Tree branches, logs, brush, shrubs, grass clippings, leaves, yard debris, soil, dirt, landscaping materials
+- Estate & Hoarding Cleanouts: Full estate cleanouts, hoarding situation cleanup, sensitive item handling, donation coordination
+
+## Service Areas
+
+Primary: Anaheim, Orange, Santa Ana, Fullerton, Garden Grove, Irvine, Huntington Beach, Costa Mesa
+Secondary: Tustin, Newport Beach, Lake Forest, Mission Viejo, Yorba Linda, Placentia, Brea, La Habra, Buena Park, Cypress, Los Alamitos, Seal Beach, Westminster, Fountain Valley, Laguna Beach, Laguna Hills, Laguna Niguel, Aliso Viejo, Dana Point, San Clemente, San Juan Capistrano, Rancho Santa Margarita
+
+## Contact
+
+- Phone: (310) 218-7822, (714) 717-2613
+- Email: opanuco@yahoo.com
+- Hours: Mon-Sat 7AM-7PM, Sun 8AM-5PM
+- Location: Anaheim, CA
+
+## Website Structure
+
+- / - Homepage
+- /services - All junk removal services
+- /about - About the company
+- /pricing - Pricing information
+- /contact - Contact form and information
+- /service-areas - Areas we serve
+- /privacy - Privacy policy
+- /terms - Terms of service

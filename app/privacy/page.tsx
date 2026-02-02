@@ -6,9 +6,33 @@ export const metadata: Metadata = {
   description: "SoCal Junk Co privacy policy. Learn how we collect, use, and protect your personal information.",
 }
 
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    {
+      "@type": "ListItem",
+      position: 1,
+      name: "Home",
+      item: "https://socaljunkco.com",
+    },
+    {
+      "@type": "ListItem",
+      position: 2,
+      name: "Privacy Policy",
+      item: "https://socaljunkco.com/privacy",
+    },
+  ],
+}
+
 export default function PrivacyPage() {
   return (
-    <div className="min-h-screen bg-white">
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+      <div className="min-h-screen bg-white">
       {/* Header */}
       <section className="bg-black text-white py-16">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -213,6 +237,7 @@ export default function PrivacyPage() {
           </div>
         </div>
       </section>
-    </div>
+      </div>
+    </>
   )
 }

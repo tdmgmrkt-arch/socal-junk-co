@@ -6,9 +6,33 @@ export const metadata: Metadata = {
   description: "SoCal Junk Co terms of service. Review our service terms, conditions, and policies.",
 }
 
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    {
+      "@type": "ListItem",
+      position: 1,
+      name: "Home",
+      item: "https://socaljunkco.com",
+    },
+    {
+      "@type": "ListItem",
+      position: 2,
+      name: "Terms of Service",
+      item: "https://socaljunkco.com/terms",
+    },
+  ],
+}
+
 export default function TermsPage() {
   return (
-    <div className="min-h-screen bg-white">
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+      <div className="min-h-screen bg-white">
       {/* Header */}
       <section className="bg-black text-white py-16">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -272,6 +296,7 @@ export default function TermsPage() {
           </div>
         </div>
       </section>
-    </div>
+      </div>
+    </>
   )
 }

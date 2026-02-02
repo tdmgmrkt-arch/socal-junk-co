@@ -8,12 +8,28 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Label } from "@/components/ui/label"
+import { Select } from "@/components/ui/select"
 import { CheckCircle } from "lucide-react"
 
+const services = [
+  "Residential Junk Removal",
+  "Commercial Junk Removal",
+  "Furniture Removal",
+  "Appliance Removal",
+  "Yard Waste Removal",
+  "Estate & Hoarding Cleanouts",
+] as const
+
 const formSchema = z.object({
-  name: z.string().min(2, { message: "Name must be at least 2 characters" }),
+  firstName: z.string().min(2, { message: "First name must be at least 2 characters" }),
+  lastName: z.string().min(2, { message: "Last name must be at least 2 characters" }),
   email: z.string().email({ message: "Please enter a valid email address" }),
   phone: z.string().min(10, { message: "Please enter a valid phone number" }),
+  streetAddress: z.string().min(5, { message: "Please enter a valid street address" }),
+  city: z.string().min(2, { message: "Please enter a city" }),
+  state: z.string().min(2, { message: "Please enter a state" }),
+  zip: z.string().min(5, { message: "Please enter a valid ZIP code" }),
+  service: z.string().min(1, { message: "Please select a service" }),
   message: z.string().min(10, { message: "Message must be at least 10 characters" }),
 })
 
@@ -31,16 +47,32 @@ export default function ContactForm() {
   })
 
   const onSubmit = async (data: FormData) => {
-    // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 1000))
-    console.log(data)
-    setIsSubmitted(true)
-    reset()
+    try {
+      const response = await fetch(
+        "https://services.leadconnectorhq.com/hooks/3DfxMSWdTh1EqOs7FXMc/webhook-trigger/c5c51a61-0db2-4bef-a159-d2ecb80e990a",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(data),
+        }
+      )
 
-    // Reset success message after 5 seconds
-    setTimeout(() => {
-      setIsSubmitted(false)
-    }, 5000)
+      if (!response.ok) {
+        throw new Error("Failed to submit form")
+      }
+
+      setIsSubmitted(true)
+      reset()
+
+      // Reset success message after 5 seconds
+      setTimeout(() => {
+        setIsSubmitted(false)
+      }, 5000)
+    } catch (error) {
+      console.error("Form submission error:", error)
+    }
   }
 
   return (
@@ -56,18 +88,33 @@ export default function ContactForm() {
         </div>
       )}
 
-      <div>
-        <Label htmlFor="name">Full Name *</Label>
-        <Input
-          id="name"
-          type="text"
-          placeholder="John Doe"
-          {...register("name")}
-          className={errors.name ? "border-red-500" : ""}
-        />
-        {errors.name && (
-          <p className="text-red-500 text-sm mt-1">{errors.name.message}</p>
-        )}
+      <div className="grid grid-cols-2 gap-4">
+        <div>
+          <Label htmlFor="firstName">First Name *</Label>
+          <Input
+            id="firstName"
+            type="text"
+            placeholder="John"
+            {...register("firstName")}
+            className={errors.firstName ? "border-red-500" : ""}
+          />
+          {errors.firstName && (
+            <p className="text-red-500 text-sm mt-1">{errors.firstName.message}</p>
+          )}
+        </div>
+        <div>
+          <Label htmlFor="lastName">Last Name *</Label>
+          <Input
+            id="lastName"
+            type="text"
+            placeholder="Doe"
+            {...register("lastName")}
+            className={errors.lastName ? "border-red-500" : ""}
+          />
+          {errors.lastName && (
+            <p className="text-red-500 text-sm mt-1">{errors.lastName.message}</p>
+          )}
+        </div>
       </div>
 
       <div>
@@ -95,6 +142,81 @@ export default function ContactForm() {
         />
         {errors.phone && (
           <p className="text-red-500 text-sm mt-1">{errors.phone.message}</p>
+        )}
+      </div>
+
+      <div>
+        <Label htmlFor="streetAddress">Street Address *</Label>
+        <Input
+          id="streetAddress"
+          type="text"
+          placeholder="123 Main St"
+          {...register("streetAddress")}
+          className={errors.streetAddress ? "border-red-500" : ""}
+        />
+        {errors.streetAddress && (
+          <p className="text-red-500 text-sm mt-1">{errors.streetAddress.message}</p>
+        )}
+      </div>
+
+      <div className="grid grid-cols-6 gap-4">
+        <div className="col-span-3">
+          <Label htmlFor="city">City *</Label>
+          <Input
+            id="city"
+            type="text"
+            placeholder="Anaheim"
+            {...register("city")}
+            className={errors.city ? "border-red-500" : ""}
+          />
+          {errors.city && (
+            <p className="text-red-500 text-sm mt-1">{errors.city.message}</p>
+          )}
+        </div>
+        <div className="col-span-1">
+          <Label htmlFor="state">State *</Label>
+          <Input
+            id="state"
+            type="text"
+            placeholder="CA"
+            {...register("state")}
+            className={errors.state ? "border-red-500" : ""}
+          />
+          {errors.state && (
+            <p className="text-red-500 text-sm mt-1">{errors.state.message}</p>
+          )}
+        </div>
+        <div className="col-span-2">
+          <Label htmlFor="zip">ZIP Code *</Label>
+          <Input
+            id="zip"
+            type="text"
+            placeholder="92801"
+            {...register("zip")}
+            className={errors.zip ? "border-red-500" : ""}
+          />
+          {errors.zip && (
+            <p className="text-red-500 text-sm mt-1">{errors.zip.message}</p>
+          )}
+        </div>
+      </div>
+
+      <div>
+        <Label htmlFor="service">Service Needed *</Label>
+        <Select
+          id="service"
+          {...register("service")}
+          className={errors.service ? "border-red-500" : ""}
+        >
+          <option value="">Select a service...</option>
+          {services.map((service) => (
+            <option key={service} value={service}>
+              {service}
+            </option>
+          ))}
+        </Select>
+        {errors.service && (
+          <p className="text-red-500 text-sm mt-1">{errors.service.message}</p>
         )}
       </div>
 

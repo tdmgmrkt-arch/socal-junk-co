@@ -53,9 +53,32 @@ const serviceFeatures = [
   "Free, no-obligation quotes"
 ]
 
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    {
+      "@type": "ListItem",
+      position: 1,
+      name: "Home",
+      item: "https://socaljunkco.com",
+    },
+    {
+      "@type": "ListItem",
+      position: 2,
+      name: "Service Areas",
+      item: "https://socaljunkco.com/service-areas",
+    },
+  ],
+}
+
 export default function ServiceAreasPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
       {/* Hero Section */}
       <section className="relative bg-black text-white overflow-hidden">
         <div className="absolute inset-0 opacity-20">

@@ -7,7 +7,7 @@ import { Home, Building2, Sofa, Refrigerator, Trash2, TreePine, CheckCircle, Pho
 
 export const metadata: Metadata = {
   title: "Junk Removal Services",
-  description: "Comprehensive junk removal services in Anaheim and Southern California. Residential, commercial, furniture, appliance removal and more. Professional, fast, eco-friendly service.",
+  description: "Junk removal services in Anaheim & SoCal. Residential, commercial, furniture & appliance removal. Fast, eco-friendly service.",
 }
 
 const services = [
@@ -97,9 +97,60 @@ const services = [
   }
 ]
 
+const servicesSchema = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  itemListElement: services.map((service, index) => ({
+    "@type": "ListItem",
+    position: index + 1,
+    item: {
+      "@type": "Service",
+      name: service.title,
+      description: service.description,
+      provider: {
+        "@type": "LocalBusiness",
+        name: "SoCal Junk Co",
+        url: "https://socaljunkco.com",
+      },
+      areaServed: {
+        "@type": "State",
+        name: "California",
+      },
+      url: `https://socaljunkco.com/services#${service.id}`,
+    },
+  })),
+}
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    {
+      "@type": "ListItem",
+      position: 1,
+      name: "Home",
+      item: "https://socaljunkco.com",
+    },
+    {
+      "@type": "ListItem",
+      position: 2,
+      name: "Services",
+      item: "https://socaljunkco.com/services",
+    },
+  ],
+}
+
 export default function ServicesPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(servicesSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
       {/* Hero Section */}
       <section className="relative bg-black text-white overflow-hidden">
         <div className="absolute inset-0 opacity-20">

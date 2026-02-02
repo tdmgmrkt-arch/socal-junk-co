@@ -6,7 +6,7 @@ import { Phone, Mail, MapPin, Clock } from "lucide-react"
 
 export const metadata: Metadata = {
   title: "Contact Us",
-  description: "Get in touch with SoCal Junk Co for a free quote. Serving Anaheim and Southern California with professional junk removal services. Call us or fill out our contact form today!",
+  description: "Contact SoCal Junk Co for a free junk removal quote in Anaheim & Southern California. Call or fill out our form today!",
 }
 
 const contactInfo = [
@@ -36,9 +36,75 @@ const contactInfo = [
   }
 ]
 
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: [
+    {
+      "@type": "Question",
+      name: "How quickly can you come?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "We offer same-day and next-day service in most areas. Contact us to check availability for your location.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Do you offer free estimates?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Yes! All estimates are completely free with no obligation. We provide upfront pricing before we begin any work.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "What areas do you serve?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "We serve Anaheim and all surrounding Southern California communities including Orange County, Los Angeles, and more.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Do I need to be present?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "While we prefer you to be present for the initial quote, we can often work with property managers or arrange for service when you're not available.",
+      },
+    },
+  ],
+}
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    {
+      "@type": "ListItem",
+      position: 1,
+      name: "Home",
+      item: "https://socaljunkco.com",
+    },
+    {
+      "@type": "ListItem",
+      position: 2,
+      name: "Contact",
+      item: "https://socaljunkco.com/contact",
+    },
+  ],
+}
+
 export default function ContactPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
       {/* Hero Section */}
       <section className="relative bg-black text-white overflow-hidden">
         <div className="absolute inset-0 opacity-20">
@@ -188,7 +254,7 @@ export default function ContactPage() {
             <div>
               <Card className="border-2 border-gray-200 hover:border-gold transition-all duration-300 shadow-lg hover:shadow-2xl">
                 <CardHeader className="bg-gradient-to-r from-gray-50 to-white">
-                  <CardTitle className="text-2xl text-gray-900">Send Us a Message</CardTitle>
+                  <CardTitle className="text-2xl text-gray-900">Get Your Free Quote</CardTitle>
                 </CardHeader>
                 <CardContent className="pt-6">
                   <ContactForm />
