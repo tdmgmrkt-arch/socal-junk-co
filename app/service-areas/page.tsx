@@ -275,12 +275,12 @@ export default function ServiceAreasPage() {
               </div>
             </div>
 
-            <div className="relative h-96 lg:h-full min-h-[500px] rounded-lg overflow-hidden shadow-xl">
+            <div className="relative w-full aspect-square max-w-[500px] mx-auto lg:mx-0 rounded-lg overflow-hidden shadow-xl">
               <Image
                 src="/bins-and-maps-socal-junk.jpeg"
                 alt="Southern California service area"
                 fill
-                className="object-cover"
+                className="object-contain"
               />
             </div>
           </div>
