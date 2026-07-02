@@ -47,7 +47,11 @@ const secondaryAreas = [
   "Ontario",
   "Rancho Cucamonga",
   "Eastvale",
-  "Jurupa Valley"
+  "Jurupa Valley",
+  "Lake Elsinore",
+  "Perris",
+  "Menifee",
+  "Murrieta"
 ]
 
 const serviceFeatures = [
