@@ -18,6 +18,14 @@ const galleryPhotos = [
   { file: "property-cleanup-prep.png", caption: "Property Cleanup Prep" },
   { file: "bulky-item-pickup.png", caption: "Bulky Item Pickup" },
   { file: "property-prep-blind-removal.jpeg", caption: "Property Prep Blind Removal", contain: true },
+  { file: "alleyway-cleanup-before-after.png", caption: "Alleyway Cleanup Before After", contain: true },
+  { file: "property-cleanout-complete.png", caption: "Property Cleanout Complete", contain: true },
+  { file: "shed-teardown-demolition.png", caption: "Shed Teardown Demolition", contain: true },
+  { file: "fence-demo-rebuild.png", caption: "Fence Demo Rebuild", contain: true },
+  { file: "big-job-construction-debris.png", caption: "Big Job Construction Debris", contain: true },
+  { file: "furniture-haul-away.png", caption: "Furniture Haul Away", contain: true },
+  { file: "deck-demo-hauling.png", caption: "Deck Demo Hauling", contain: true },
+  { file: "appliance-junk-removal.png", caption: "Appliance Junk Removal", contain: true },
 ]
 
 const breadcrumbSchema = {
