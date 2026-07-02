@@ -179,6 +179,88 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Google Reviews */}
+      <section className="py-16 sm:py-24 bg-black text-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full border border-gold/30 mb-6">
+              <svg viewBox="0 0 48 48" className="h-5 w-5 flex-shrink-0">
+                <path fill="#4285F4" d="M45.12 24.5c0-1.56-.14-3.06-.4-4.5H24v8.51h11.84c-.51 2.75-2.06 5.08-4.39 6.64v5.52h7.11c4.16-3.83 6.56-9.47 6.56-16.17z" />
+                <path fill="#34A853" d="M24 46c5.94 0 10.92-1.97 14.56-5.33l-7.11-5.52c-1.97 1.32-4.49 2.1-7.45 2.1-5.73 0-10.58-3.87-12.31-9.07H4.34v5.7C7.96 41.07 15.4 46 24 46z" />
+                <path fill="#FBBC05" d="M11.69 28.18C11.25 26.86 11 25.45 11 24s.25-2.86.69-4.18v-5.7H4.34C2.85 17.09 2 20.45 2 24s.85 6.91 2.34 9.88l7.35-5.7z" />
+                <path fill="#EA4335" d="M24 10.75c3.23 0 6.13 1.11 8.41 3.29l6.31-6.31C34.91 4.18 29.93 2 24 2 15.4 2 7.96 6.93 4.34 14.12l7.35 5.7c1.73-5.2 6.58-9.07 12.31-9.07z" />
+              </svg>
+              <span className="text-sm font-semibold text-white">Google Reviews</span>
+            </div>
+            <h2 className="text-3xl sm:text-4xl font-bold mb-4">
+              What Our <span className="text-gold">Customers Say</span>
+            </h2>
+            <div className="flex justify-center gap-1 mb-2">
+              {[...Array(5)].map((_, i) => (
+                <Star key={i} className="h-6 w-6 fill-gold text-gold" />
+              ))}
+            </div>
+            <p className="text-gray-400">5.0 rating from verified Google reviews</p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <Card className="bg-white/5 border-2 border-white/10 hover:border-gold transition-all duration-300 hover:shadow-xl hover:shadow-gold/10">
+              <CardHeader>
+                <div className="flex gap-1 mb-1">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} className="h-5 w-5 fill-gold text-gold" />
+                  ))}
+                </div>
+              </CardHeader>
+              <CardContent>
+                <CardDescription className="text-base text-gray-300 leading-relaxed italic mb-4">
+                  "SoCal Junk did another great job! Took two properties I needed cleaned out with a few repairs and painting and they definitely showed up! Took care of properties in Long Beach and in Bloomington in San Bernardino county for me. It was great!"
+                </CardDescription>
+                <div className="border-t border-white/10 pt-3">
+                  <p className="text-sm font-semibold text-white">Christina Mercado</p>
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card className="bg-white/5 border-2 border-white/10 hover:border-gold transition-all duration-300 hover:shadow-xl hover:shadow-gold/10">
+              <CardHeader>
+                <div className="flex gap-1 mb-1">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} className="h-5 w-5 fill-gold text-gold" />
+                  ))}
+                </div>
+              </CardHeader>
+              <CardContent>
+                <CardDescription className="text-base text-gray-300 leading-relaxed italic mb-4">
+                  "SoCal Junk did an amazing job helping clean out an alleyway for one of my listings in Bloomington, CA before preparing the property for sale. They were responsive, professional, and got the job done quickly. The alleyway looked clean, organized, and ready for photos/showings after they finished. Their team made the process simple and stress-free. I would highly recommend SoCal Junk to homeowners, real estate agents, investors, and property managers looking for dependable junk removal and property cleanout services."
+                </CardDescription>
+                <div className="border-t border-white/10 pt-3">
+                  <p className="text-sm font-semibold text-white">Maddison Canaday</p>
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card className="bg-white/5 border-2 border-white/10 hover:border-gold transition-all duration-300 hover:shadow-xl hover:shadow-gold/10">
+              <CardHeader>
+                <div className="flex gap-1 mb-1">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} className="h-5 w-5 fill-gold text-gold" />
+                  ))}
+                </div>
+              </CardHeader>
+              <CardContent>
+                <CardDescription className="text-base text-gray-300 leading-relaxed italic mb-4">
+                  "We recently hired this company for a large house and ranch cleanout, and they exceeded our expectations. This included a large custom wood chicken coop, catio, a wooden barn shed, and horse stalls/panels. There's nothing these guys can't do! The crew arrived on time, worked efficiently, and handled everything from household junk to ranch debris with professionalism and care. They were respectful of the property, communicated clearly throughout the process, and left the area much cleaner than we expected. Their pricing was fair, with no surprise charges. Highly recommend for junk removal, estate cleanouts, ranch cleanup, or property clearing. We would absolutely use them again."
+                </CardDescription>
+                <div className="border-t border-white/10 pt-3">
+                  <p className="text-sm font-semibold text-white">Sarah Lee-Ochoa</p>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
       {/* What We Remove */}
       <section className="py-16 bg-gradient-to-r from-black to-black text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
