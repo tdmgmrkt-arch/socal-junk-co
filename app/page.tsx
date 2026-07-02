@@ -415,6 +415,20 @@ export default function Home() {
               </CardContent>
             </Card>
           </div>
+
+          <div className="text-center mt-12">
+            <Button asChild size="lg" variant="outline" className="border-2 border-gold text-gold hover:bg-gold hover:text-white">
+              <a
+                href="https://g.page/r/CX1mJep5os9uEBM/review"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2"
+              >
+                <Star className="h-5 w-5" />
+                Leave us a Review
+              </a>
+            </Button>
+          </div>
         </div>
       </section>
 

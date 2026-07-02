@@ -1,6 +1,7 @@
 import Link from "next/link"
 import Image from "next/image"
-import { Phone, Mail, MapPin, Facebook, Twitter, Instagram, Clock } from "lucide-react"
+import { Phone, Mail, MapPin, Facebook, Twitter, Instagram, Clock, Star } from "lucide-react"
+import { Button } from "@/components/ui/button"
 
 const navigation = {
   services: [
@@ -38,7 +39,7 @@ export default function Footer() {
             <p className="text-gray-400 text-sm mb-4">
               Professional junk removal services in Anaheim and throughout Southern California. Fast, reliable, and eco-friendly.
             </p>
-            <div className="flex gap-4">
+            <div className="flex gap-4 mb-6">
               <a href="#" className="text-gray-400 hover:text-gold transition-colors">
                 <Facebook className="h-5 w-5" />
               </a>
@@ -49,6 +50,17 @@ export default function Footer() {
                 <Instagram className="h-5 w-5" />
               </a>
             </div>
+            <Button asChild variant="outline" className="border-2 border-gold text-gold hover:bg-gold hover:text-white">
+              <a
+                href="https://g.page/r/CX1mJep5os9uEBM/review"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2"
+              >
+                <Star className="h-4 w-4" />
+                Leave us a Review
+              </a>
+            </Button>
           </div>
 
           {/* Services */}
