@@ -277,7 +277,7 @@ export default function ServiceAreasPage() {
 
             <div className="relative h-96 lg:h-full min-h-[500px] rounded-lg overflow-hidden shadow-xl">
               <Image
-                src="/placeholderimage.webp"
+                src="/bins-and-maps-socal-junk.jpeg"
                 alt="Southern California service area"
                 fill
                 className="object-cover"
