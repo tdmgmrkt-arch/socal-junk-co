@@ -12,12 +12,12 @@ export const metadata: Metadata = {
 const galleryPhotos = [
   { file: "riverside-garage-cleanout.png", caption: "Riverside Garage Cleanout" },
   { file: "murrieta-backyard-cleanup.png", caption: "Murrieta Backyard Cleanup" },
-  { file: "bloomington-property-prep-before-after.png", caption: "Bloomington Property Prep Before After" },
+  { file: "bloomington-property-prep-before-after.png", caption: "Bloomington Property Prep Before After", contain: true },
   { file: "presale-property-cleanup.png", caption: "Presale Property Cleanup" },
-  { file: "long-beach-curb-cleanup.png", caption: "Long Beach Curb Cleanup" },
+  { file: "long-beach-curb-cleanup.png", caption: "Long Beach Curb Cleanup", contain: true },
   { file: "property-cleanup-prep.png", caption: "Property Cleanup Prep" },
   { file: "bulky-item-pickup.png", caption: "Bulky Item Pickup" },
-  { file: "property-prep-blind-removal.jpeg", caption: "Property Prep Blind Removal" },
+  { file: "property-prep-blind-removal.jpeg", caption: "Property Prep Blind Removal", contain: true },
 ]
 
 const breadcrumbSchema = {
@@ -77,12 +77,14 @@ export default function GalleryPage() {
                 key={photo.file}
                 className="group rounded-lg overflow-hidden border shadow-md hover:shadow-xl transition-all duration-300"
               >
-                <div className="relative aspect-square">
+                <div className="relative aspect-square bg-gray-100">
                   <Image
                     src={`/gallery/${photo.file}`}
                     alt={photo.caption}
                     fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-300"
+                    className={`group-hover:scale-105 transition-transform duration-300 ${
+                      photo.contain ? "object-contain" : "object-cover"
+                    }`}
                   />
                 </div>
                 <div className="p-4 bg-gray-50">
