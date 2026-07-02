@@ -41,7 +41,13 @@ const secondaryAreas = [
   "Dana Point",
   "Laguna Niguel",
   "Aliso Viejo",
-  "Rancho Santa Margarita"
+  "Rancho Santa Margarita",
+  "Riverside",
+  "Corona",
+  "Ontario",
+  "Rancho Cucamonga",
+  "Eastvale",
+  "Jurupa Valley"
 ]
 
 const serviceFeatures = [
