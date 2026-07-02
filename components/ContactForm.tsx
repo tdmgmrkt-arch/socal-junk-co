@@ -9,28 +9,31 @@ import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Label } from "@/components/ui/label"
 import { Select } from "@/components/ui/select"
-import { CheckCircle } from "lucide-react"
+import { CheckCircle, MessageSquare } from "lucide-react"
 
-const services = [
-  "Residential Junk Removal",
-  "Commercial Junk Removal",
-  "Furniture Removal",
-  "Appliance Removal",
-  "Yard Waste Removal",
-  "Estate & Hoarding Cleanouts",
+const junkTypes = [
+  "Furniture",
+  "Appliances",
+  "Yard Waste",
+  "Construction Debris",
+  "General Junk",
+  "Other",
+] as const
+
+const estimatedSizes = [
+  { value: "small", label: "Small - few items" },
+  { value: "medium", label: "Medium - truck bed" },
+  { value: "large", label: "Large - full trailer/room" },
 ] as const
 
 const formSchema = z.object({
-  firstName: z.string().min(2, { message: "First name must be at least 2 characters" }),
-  lastName: z.string().min(2, { message: "Last name must be at least 2 characters" }),
-  email: z.string().email({ message: "Please enter a valid email address" }),
+  name: z.string().min(2, { message: "Name must be at least 2 characters" }),
   phone: z.string().min(10, { message: "Please enter a valid phone number" }),
-  streetAddress: z.string().min(5, { message: "Please enter a valid street address" }),
-  city: z.string().min(2, { message: "Please enter a city" }),
-  state: z.string().min(2, { message: "Please enter a state" }),
+  email: z.string().email({ message: "Please enter a valid email address" }),
   zip: z.string().min(5, { message: "Please enter a valid ZIP code" }),
-  service: z.string().min(1, { message: "Please select a service" }),
-  message: z.string().min(10, { message: "Message must be at least 10 characters" }),
+  junkType: z.string().min(1, { message: "Please select a type of junk" }),
+  estimatedSize: z.string().min(1, { message: "Please select an estimated size" }),
+  message: z.string().optional(),
 })
 
 type FormData = z.infer<typeof formSchema>
@@ -88,46 +91,28 @@ export default function ContactForm() {
         </div>
       )}
 
-      <div className="grid grid-cols-2 gap-4">
-        <div>
-          <Label htmlFor="firstName">First Name *</Label>
-          <Input
-            id="firstName"
-            type="text"
-            placeholder="John"
-            {...register("firstName")}
-            className={errors.firstName ? "border-red-500" : ""}
-          />
-          {errors.firstName && (
-            <p className="text-red-500 text-sm mt-1">{errors.firstName.message}</p>
-          )}
-        </div>
-        <div>
-          <Label htmlFor="lastName">Last Name *</Label>
-          <Input
-            id="lastName"
-            type="text"
-            placeholder="Doe"
-            {...register("lastName")}
-            className={errors.lastName ? "border-red-500" : ""}
-          />
-          {errors.lastName && (
-            <p className="text-red-500 text-sm mt-1">{errors.lastName.message}</p>
-          )}
-        </div>
+      <div className="p-4 bg-gold/10 border-l-4 border-gold rounded flex items-start gap-2">
+        <MessageSquare className="h-5 w-5 text-gold flex-shrink-0 mt-0.5" />
+        <p className="text-sm text-gray-700">
+          For faster service, text photos of your items to{" "}
+          <a href="tel:+13102187822" className="font-semibold text-gold hover:underline">
+            (310) 218-7822
+          </a>{" "}
+          after submitting.
+        </p>
       </div>
 
       <div>
-        <Label htmlFor="email">Email Address *</Label>
+        <Label htmlFor="name">Name *</Label>
         <Input
-          id="email"
-          type="email"
-          placeholder="john@example.com"
-          {...register("email")}
-          className={errors.email ? "border-red-500" : ""}
+          id="name"
+          type="text"
+          placeholder="John Doe"
+          {...register("name")}
+          className={errors.name ? "border-red-500" : ""}
         />
-        {errors.email && (
-          <p className="text-red-500 text-sm mt-1">{errors.email.message}</p>
+        {errors.name && (
+          <p className="text-red-500 text-sm mt-1">{errors.name.message}</p>
         )}
       </div>
 
@@ -146,82 +131,73 @@ export default function ContactForm() {
       </div>
 
       <div>
-        <Label htmlFor="streetAddress">Street Address *</Label>
+        <Label htmlFor="email">Email Address *</Label>
         <Input
-          id="streetAddress"
-          type="text"
-          placeholder="123 Main St"
-          {...register("streetAddress")}
-          className={errors.streetAddress ? "border-red-500" : ""}
+          id="email"
+          type="email"
+          placeholder="john@example.com"
+          {...register("email")}
+          className={errors.email ? "border-red-500" : ""}
         />
-        {errors.streetAddress && (
-          <p className="text-red-500 text-sm mt-1">{errors.streetAddress.message}</p>
+        {errors.email && (
+          <p className="text-red-500 text-sm mt-1">{errors.email.message}</p>
         )}
       </div>
 
-      <div className="grid grid-cols-6 gap-4">
-        <div className="col-span-3">
-          <Label htmlFor="city">City *</Label>
-          <Input
-            id="city"
-            type="text"
-            placeholder="Anaheim"
-            {...register("city")}
-            className={errors.city ? "border-red-500" : ""}
-          />
-          {errors.city && (
-            <p className="text-red-500 text-sm mt-1">{errors.city.message}</p>
-          )}
-        </div>
-        <div className="col-span-1">
-          <Label htmlFor="state">State *</Label>
-          <Input
-            id="state"
-            type="text"
-            placeholder="CA"
-            {...register("state")}
-            className={errors.state ? "border-red-500" : ""}
-          />
-          {errors.state && (
-            <p className="text-red-500 text-sm mt-1">{errors.state.message}</p>
-          )}
-        </div>
-        <div className="col-span-2">
-          <Label htmlFor="zip">ZIP Code *</Label>
-          <Input
-            id="zip"
-            type="text"
-            placeholder="92801"
-            {...register("zip")}
-            className={errors.zip ? "border-red-500" : ""}
-          />
-          {errors.zip && (
-            <p className="text-red-500 text-sm mt-1">{errors.zip.message}</p>
-          )}
-        </div>
+      <div>
+        <Label htmlFor="zip">ZIP Code *</Label>
+        <Input
+          id="zip"
+          type="text"
+          placeholder="92801"
+          {...register("zip")}
+          className={errors.zip ? "border-red-500" : ""}
+        />
+        {errors.zip && (
+          <p className="text-red-500 text-sm mt-1">{errors.zip.message}</p>
+        )}
       </div>
 
       <div>
-        <Label htmlFor="service">Service Needed *</Label>
+        <Label htmlFor="junkType">Type of Junk *</Label>
         <Select
-          id="service"
-          {...register("service")}
-          className={errors.service ? "border-red-500" : ""}
+          id="junkType"
+          {...register("junkType")}
+          className={errors.junkType ? "border-red-500" : ""}
         >
-          <option value="">Select a service...</option>
-          {services.map((service) => (
-            <option key={service} value={service}>
-              {service}
+          <option value="">Select a type...</option>
+          {junkTypes.map((type) => (
+            <option key={type} value={type}>
+              {type}
             </option>
           ))}
         </Select>
-        {errors.service && (
-          <p className="text-red-500 text-sm mt-1">{errors.service.message}</p>
+        {errors.junkType && (
+          <p className="text-red-500 text-sm mt-1">{errors.junkType.message}</p>
         )}
       </div>
 
       <div>
-        <Label htmlFor="message">Message *</Label>
+        <Label htmlFor="estimatedSize">Estimated Size *</Label>
+        <Select
+          id="estimatedSize"
+          {...register("estimatedSize")}
+          className={errors.estimatedSize ? "border-red-500" : ""}
+        >
+          <option value="">Select an estimated size...</option>
+          {estimatedSizes.map((size) => (
+            <option key={size.value} value={size.value}>
+              {size.label}
+            </option>
+          ))}
+        </Select>
+        {errors.estimatedSize && (
+          <p className="text-red-500 text-sm mt-1">{errors.estimatedSize.message}</p>
+        )}
+      </div>
+
+      <div>
+        <Label htmlFor="message">Message (optional)</Label>
         <Textarea
           id="message"
           placeholder="Tell us about your junk removal needs..."
