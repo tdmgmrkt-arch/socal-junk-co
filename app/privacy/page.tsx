@@ -162,7 +162,7 @@ export default function PrivacyPage() {
                 <li><strong>Data Portability:</strong> You can request a copy of your data in a portable format</li>
               </ul>
               <p className="text-gray-700">
-                To exercise these rights, please contact us at <a href="mailto:opanuco@yahoo.com" className="text-gold hover:underline">opanuco@yahoo.com</a> or call us at <a href="tel:+13102187822" className="text-gold hover:underline">(310) 218-7822</a>.
+                To exercise these rights, please contact us at <a href="mailto:info@socaljunk.net" className="text-gold hover:underline">info@socaljunk.net</a> or call us at <a href="tel:+13102187822" className="text-gold hover:underline">(310) 218-7822</a>.
               </p>
             </div>
 
@@ -222,7 +222,7 @@ export default function PrivacyPage() {
               </p>
               <div className="bg-gray-50 p-6 rounded-lg">
                 <p className="text-gray-700 mb-2"><strong>SoCal Junk Co</strong></p>
-                <p className="text-gray-700 mb-2">Email: <a href="mailto:opanuco@yahoo.com" className="text-gold hover:underline">opanuco@yahoo.com</a></p>
+                <p className="text-gray-700 mb-2">Email: <a href="mailto:info@socaljunk.net" className="text-gold hover:underline">info@socaljunk.net</a></p>
                 <p className="text-gray-700 mb-2">Phone: <a href="tel:+13102187822" className="text-gold hover:underline">(310) 218-7822</a> or <a href="tel:+17147172613" className="text-gold hover:underline">(714) 717-2613</a></p>
                 <p className="text-gray-700">Location: Anaheim, CA</p>
               </div>

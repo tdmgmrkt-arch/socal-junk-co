@@ -19,8 +19,8 @@ const contactInfo = [
   {
     icon: Mail,
     title: "Email",
-    details: "opanuco@yahoo.com",
-    link: "mailto:opanuco@yahoo.com"
+    details: "info@socaljunk.net",
+    link: "mailto:info@socaljunk.net"
   },
   {
     icon: MapPin,

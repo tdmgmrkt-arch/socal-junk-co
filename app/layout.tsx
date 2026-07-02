@@ -90,7 +90,7 @@ const jsonLd = {
       description: "Professional junk removal and hauling services in Anaheim and throughout Southern California. Fast, reliable, eco-friendly junk removal for residential and commercial properties.",
       url: "https://socaljunkco.com",
       telephone: ["(310) 218-7822", "(714) 717-2613"],
-      email: "opanuco@yahoo.com",
+      email: "info@socaljunk.net",
       address: {
         "@type": "PostalAddress",
         addressLocality: "Anaheim",

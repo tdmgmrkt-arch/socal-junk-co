@@ -36,13 +36,13 @@ export default function Header() {
               </a>
               <div className="hidden sm:block h-4 w-px bg-gray-300"></div>
               <a
-                href="mailto:opanuco@yahoo.com"
+                href="mailto:info@socaljunk.net"
                 className="flex items-center gap-2 text-sm font-medium hover:text-gold transition-all duration-200 group"
               >
                 <div className="p-1.5 rounded-full bg-gold/10 group-hover:bg-gold/20 transition-colors">
                   <Mail className="h-3.5 w-3.5 text-gold" />
                 </div>
-                <span className="hidden md:inline">opanuco@yahoo.com</span>
+                <span className="hidden md:inline">info@socaljunk.net</span>
               </a>
             </div>
             <div className="flex items-center gap-2 text-xs sm:text-sm font-medium text-gray-600">
