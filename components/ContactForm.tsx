@@ -51,19 +51,24 @@ export default function ContactForm() {
 
   const onSubmit = async (data: FormData) => {
     try {
-      const response = await fetch(
-        "https://services.leadconnectorhq.com/hooks/3DfxMSWdTh1EqOs7FXMc/webhook-trigger/c5c51a61-0db2-4bef-a159-d2ecb80e990a",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(data),
-        }
-      )
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          access_key: "670f5da5-1976-4696-a844-bc0a26d3e402",
+          subject: "New Quote Request - SoCal Junk Co",
+          from_name: data.name,
+          ...data,
+        }),
+      })
 
-      if (!response.ok) {
-        throw new Error("Failed to submit form")
+      const result = await response.json()
+
+      if (!response.ok || !result.success) {
+        throw new Error(result.message || "Failed to submit form")
       }
 
       setIsSubmitted(true)
