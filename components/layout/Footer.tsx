@@ -14,6 +14,7 @@ const navigation = {
     { name: "About Us", href: "/about" },
     { name: "Pricing", href: "/pricing" },
     { name: "Service Areas", href: "/service-areas" },
+    { name: "Blog", href: "/blog" },
     { name: "Contact", href: "/contact" },
   ],
   legal: [
@@ -148,6 +149,19 @@ export default function Footer() {
                 </Link>
               ))}
             </div>
+          </div>
+          <div className="mt-4 text-center">
+            <p className="text-gray-400 text-sm">
+              Designed &amp; Developed by{" "}
+              <a
+                href="https://tdmarketinggroup.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-gold transition-colors"
+              >
+                TD Marketing Group
+              </a>
+            </p>
           </div>
         </div>
       </div>
