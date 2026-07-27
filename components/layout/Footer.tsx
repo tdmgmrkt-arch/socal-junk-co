@@ -53,7 +53,7 @@ export default function Footer() {
             </div>
         <div className="flex flex-col gap-2">
               <Button asChild variant="outline" className="border-2 border-gold text-gold hover:bg-gold hover:text-white">
-                
+        <a        
                   href="https://g.page/r/CX1mJep5os9uEBM/review"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -63,7 +63,7 @@ export default function Footer() {
                   Leave us a Review
                 </a>
               </Button>
-              
+              <a
                 href="https://www.yelp.com/biz/socal-junk-anaheim-2"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -71,7 +71,7 @@ export default function Footer() {
               >
                 Find us on Yelp
               </a>
-              
+              <a
                 href="https://nextdoor.com/pages/socal-junk/"
                 target="_blank"
                 rel="noopener noreferrer"
