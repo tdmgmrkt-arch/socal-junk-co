@@ -140,7 +140,13 @@ const jsonLd = {
         "Yard Waste Removal",
         "Estate & Hoarding Cleanouts",
       ],
-      sameAs: [],
+     sameAs: [
+        "https://share.google/HafHist75VsMp0nzB",
+        "https://www.yelp.com/biz/socal-junk-anaheim-2",
+        "https://nextdoor.com/pages/socal-junk/",
+        // Add more profile URLs here as you create them:
+        // Facebook page, Instagram, BBB profile, etc.
+      ],
     },
     {
       "@type": "Organization",
