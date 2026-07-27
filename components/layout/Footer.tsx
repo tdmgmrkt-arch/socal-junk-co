@@ -1,6 +1,6 @@
 import Link from "next/link"
 import Image from "next/image"
-import { Phone, Mail, MapPin, Facebook, Twitter, Instagram, Clock, Star } from "lucide-react"
+import { Phone, Mail, MapPin, Facebook, Twitter, Instagram, Clock, Star, MessageSquare, Users } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
 const navigation = {
@@ -51,34 +51,25 @@ export default function Footer() {
                 <Instagram className="h-5 w-5" />
               </a>
             </div>
-        <div className="flex flex-col gap-2">
+            <div className="flex flex-col gap-2">
               <Button asChild variant="outline" className="border-2 border-gold text-gold hover:bg-gold hover:text-white">
-        <a        
-                  href="https://g.page/r/CX1mJep5os9uEBM/review"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-2"
-                >
+                <a href="https://g.page/r/CX1mJep5os9uEBM/review" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
                   <Star className="h-4 w-4" />
                   Leave us a Review
                 </a>
               </Button>
-              <a
-                href="https://www.yelp.com/biz/socal-junk-anaheim-2"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-gray-400 hover:text-gold transition-colors text-sm underline underline-offset-2"
-              >
-                Find us on Yelp
-              </a>
-              <a
-                href="https://nextdoor.com/pages/socal-junk/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-gray-400 hover:text-gold transition-colors text-sm underline underline-offset-2"
-              >
-                Find us on Nextdoor
-              </a>
+              <Button asChild variant="outline" className="border-2 border-gold text-gold hover:bg-gold hover:text-white">
+                <a href="https://www.yelp.com/biz/socal-junk-anaheim-2" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
+                  <MessageSquare className="h-4 w-4" />
+                  Find us on Yelp
+                </a>
+              </Button>
+              <Button asChild variant="outline" className="border-2 border-gold text-gold hover:bg-gold hover:text-white">
+                <a href="https://nextdoor.com/pages/socal-junk/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
+                  <Users className="h-4 w-4" />
+                  Find us on Nextdoor
+                </a>
+              </Button>
             </div>
           </div>
 
@@ -171,7 +162,7 @@ export default function Footer() {
           <div className="mt-4 text-center">
             <p className="text-gray-400 text-sm">
               Designed &amp; Developed by{" "}
-              <a
+              
                 href="https://tdmarketinggroup.com/"
                 target="_blank"
                 rel="noopener noreferrer"
