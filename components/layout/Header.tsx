@@ -27,8 +27,7 @@ export default function Header() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center py-3">
             <div className="flex items-center gap-6 md:gap-8">
-              <a
-                href="tel:+1234567890"
+              <a href="tel:+13102187822"
                 className="flex items-center gap-2 text-sm font-medium hover:text-gold transition-all duration-200 group"
               >
                 <div className="p-1.5 rounded-full bg-gold/10 group-hover:bg-gold/20 transition-colors">
@@ -37,8 +36,7 @@ export default function Header() {
                 <span className="hidden sm:inline">(310) 218-7822</span>
               </a>
               <div className="hidden sm:block h-4 w-px bg-gray-300"></div>
-              <a
-                href="mailto:info@socaljunk.net"
+              <a href="mailto:info@socaljunk.net"
                 className="flex items-center gap-2 text-sm font-medium hover:text-gold transition-all duration-200 group"
               >
                 <div className="p-1.5 rounded-full bg-gold/10 group-hover:bg-gold/20 transition-colors">
@@ -64,8 +62,7 @@ export default function Header() {
           <div className="flex justify-between items-center h-20">
             {/* Logo */}
             <Link href="/" className="shrink-0">
-              <Image
-                src="/socaljunkcologo.png"
+              <Image src="/socaljunkcologo.png"
                 alt="SoCal Junk Co Logo"
                 width={180}
                 height={60}
@@ -77,8 +74,7 @@ export default function Header() {
             {/* Desktop Navigation */}
             <div className="hidden lg:flex lg:items-center lg:gap-8">
               {navigation.map((item) => (
-                <Link
-                  key={item.name}
+                <Link key={item.name}
                   href={item.href}
                   className="text-white hover:text-gold font-medium transition-colors duration-200"
                 >
@@ -92,8 +88,7 @@ export default function Header() {
 
             {/* Mobile menu button */}
             <div className="flex lg:hidden">
-              <button
-                type="button"
+              <button type="button"
                 className="inline-flex items-center justify-center p-2 rounded-md text-white hover:bg-gray-800"
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               >
@@ -114,8 +109,7 @@ export default function Header() {
         <div className="lg:hidden bg-black border-t border-gray-800">
           <div className="px-4 pt-4 pb-6 space-y-3">
             {navigation.map((item) => (
-              <Link
-                key={item.name}
+              <Link key={item.name}
                 href={item.href}
                 className="block px-4 py-3 rounded-md text-base font-medium text-white hover:bg-gray-800 hover:text-gold transition-colors"
                 onClick={() => setMobileMenuOpen(false)}
