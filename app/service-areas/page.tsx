@@ -4,6 +4,7 @@ import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { MapPin, CheckCircle, Phone } from "lucide-react"
+import { cities } from "@/lib/cities"
 
 export const metadata: Metadata = {
   title: "Service Areas",
@@ -27,6 +28,7 @@ const secondaryAreas = [
   "Lake Forest",
   "Mission Viejo",
   "Yorba Linda",
+  "Anaheim Hills",
   "Placentia",
   "Brea",
   "La Habra",
@@ -36,6 +38,7 @@ const secondaryAreas = [
   "Westminster",
   "Seal Beach",
   "Los Alamitos",
+  "Long Beach",
   "Laguna Beach",
   "San Clemente",
   "Dana Point",
@@ -63,6 +66,14 @@ const serviceFeatures = [
   "Free, no-obligation quotes"
 ]
 
+// Looks up the landing-page slug for an area name, if one exists in lib/cities.ts.
+// Returns undefined when there's no dedicated landing page yet, so that area
+// renders as plain (non-clickable) text instead of a broken link.
+function citySlugFor(areaName: string) {
+  const match = cities.find((c) => c.name.toLowerCase() === areaName.toLowerCase())
+  return match?.slug
+}
+
 const breadcrumbSchema = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
@@ -85,15 +96,13 @@ const breadcrumbSchema = {
 export default function ServiceAreasPage() {
   return (
     <>
-      <script
-        type="application/ld+json"
+      <script type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
       {/* Hero Section */}
       <section className="relative bg-black text-white overflow-hidden">
         <div className="absolute inset-0 opacity-20">
-          <Image
-            src="/hero.webp"
+          <Image src="/hero.webp"
             alt="Junk removal services"
             fill
             className="object-cover object-[50%_68%]"
@@ -124,19 +133,26 @@ export default function ServiceAreasPage() {
           </div>
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
-            {primaryAreas.map((area, index) => (
-              <Card
-                key={index}
-                className="text-center border-2 hover:border-gold transition-all duration-300 hover:shadow-xl hover:-translate-y-1 group"
-              >
-                <CardHeader className="pb-3">
-                  <div className="w-16 h-16 mx-auto mb-3 rounded-2xl bg-gold flex items-center justify-center shadow-lg group-hover:shadow-xl group-hover:scale-110 transition-all duration-300">
-                    <MapPin className="h-8 w-8 text-white" />
-                  </div>
-                  <CardTitle className="text-lg group-hover:text-gold transition-colors duration-300">{area}</CardTitle>
-                </CardHeader>
-              </Card>
-            ))}
+            {primaryAreas.map((area, index) => {
+              const slug = citySlugFor(area)
+              const cardBody = (
+                <Card className="text-center border-2 hover:border-gold transition-all duration-300 hover:shadow-xl hover:-translate-y-1 group">
+                  <CardHeader className="pb-3">
+                    <div className="w-16 h-16 mx-auto mb-3 rounded-2xl bg-gold flex items-center justify-center shadow-lg group-hover:shadow-xl group-hover:scale-110 transition-all duration-300">
+                      <MapPin className="h-8 w-8 text-white" />
+                    </div>
+                    <CardTitle className="text-lg group-hover:text-gold transition-colors duration-300">{area}</CardTitle>
+                  </CardHeader>
+                </Card>
+              )
+              return slug ? (
+                <Link key={index} href={`/service-areas/${slug}`}>
+                  {cardBody}
+                </Link>
+              ) : (
+                <div key={index}>{cardBody}</div>
+              )
+            })}
           </div>
 
           <div className="text-center p-6 bg-gradient-to-r from-gray-50 to-amber-50 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 border border-gold/20">
@@ -165,17 +181,27 @@ export default function ServiceAreasPage() {
           </div>
 
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mb-8">
-            {secondaryAreas.map((area, index) => (
-              <div
-                key={index}
-                className="flex items-center gap-2 p-3 bg-white rounded-lg border hover:border-gold transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5 group"
-              >
-                <div className="w-8 h-8 rounded-lg bg-gold flex items-center justify-center shadow-md group-hover:shadow-lg group-hover:scale-110 transition-all duration-300">
-                  <CheckCircle className="h-4 w-4 text-white flex-shrink-0" />
+            {secondaryAreas.map((area, index) => {
+              const slug = citySlugFor(area)
+              const rowClassName = "flex items-center gap-2 p-3 bg-white rounded-lg border hover:border-gold transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5 group"
+              const rowContent = (
+                <>
+                  <div className="w-8 h-8 rounded-lg bg-gold flex items-center justify-center shadow-md group-hover:shadow-lg group-hover:scale-110 transition-all duration-300">
+                    <CheckCircle className="h-4 w-4 text-white flex-shrink-0" />
+                  </div>
+                  <span className="text-gray-900 font-medium group-hover:text-gold transition-colors duration-300">{area}</span>
+                </>
+              )
+              return slug ? (
+                <Link key={index} href={`/service-areas/${slug}`} className={rowClassName}>
+                  {rowContent}
+                </Link>
+              ) : (
+                <div key={index} className={rowClassName}>
+                  {rowContent}
                 </div>
-                <span className="text-gray-900 font-medium group-hover:text-gold transition-colors duration-300">{area}</span>
-              </div>
-            ))}
+              )
+            })}
           </div>
 
           <div className="p-6 bg-white rounded-lg border-l-4 border-gold shadow-md hover:shadow-xl transition-shadow duration-300">
@@ -202,8 +228,7 @@ export default function ServiceAreasPage() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {serviceFeatures.map((feature, index) => (
-              <div
-                key={index}
+              <div key={index}
                 className="flex items-center gap-3 p-4 bg-gray-50 rounded-lg hover:bg-white transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5 group border border-transparent hover:border-gold"
               >
                 <div className="flex-shrink-0 w-12 h-12 bg-gold rounded-xl flex items-center justify-center shadow-md group-hover:shadow-lg group-hover:scale-110 transition-all duration-300">
@@ -276,8 +301,7 @@ export default function ServiceAreasPage() {
             </div>
 
             <div className="relative w-full aspect-square max-w-[500px] mx-auto lg:mx-0 rounded-lg overflow-hidden shadow-xl">
-              <Image
-                src="/bins-and-maps-socal-junk.jpeg"
+              <Image src="/bins-and-maps-socal-junk.jpeg"
                 alt="Southern California service area"
                 fill
                 className="object-contain"
