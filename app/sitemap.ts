@@ -1,5 +1,6 @@
 import { MetadataRoute } from 'next'
 import { blogPosts } from '@/lib/blog'
+import { cities } from '@/lib/cities'
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://socaljunkco.com'
@@ -19,8 +20,16 @@ export default function sitemap(): MetadataRoute.Sitemap {
     })),
   ]
 
+  const cityEntries: MetadataRoute.Sitemap = cities.map((city) => ({
+    url: `${baseUrl}/service-areas/${city.slug}`,
+    lastModified: new Date(),
+    changeFrequency: 'monthly' as const,
+    priority: 0.8,
+  }))
+
   return [
     ...blogEntries,
+    ...cityEntries,
     {
       url: baseUrl,
       lastModified: new Date(),
