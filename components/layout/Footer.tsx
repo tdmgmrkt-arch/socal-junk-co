@@ -30,8 +30,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
           {/* Company Info */}
           <div>
-            <Image
-              src="/socaljunkcologo.png"
+            <Image src="/socaljunkcologo.png"
               alt="SoCal Junk Co Logo"
               width={150}
               height={50}
@@ -149,8 +148,7 @@ export default function Footer() {
             </p>
             <div className="flex gap-6">
               {navigation.legal.map((item) => (
-                <Link
-                  key={item.name}
+                <Link key={item.name}
                   href={item.href}
                   className="text-gray-400 hover:text-white transition-colors text-sm"
                 >
@@ -162,12 +160,7 @@ export default function Footer() {
           <div className="mt-4 text-center">
             <p className="text-gray-400 text-sm">
               Designed &amp; Developed by{" "}
-              
-                href="https://tdmarketinggroup.com/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:text-gold transition-colors"
-              >
+              <a href="https://tdmarketinggroup.com/" target="_blank" rel="noopener noreferrer" className="hover:text-gold transition-colors">
                 TD Marketing Group
               </a>
             </p>
