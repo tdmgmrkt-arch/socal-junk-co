@@ -1,0 +1,79 @@
+{
+  "$schema": "https://socaljunkco.com/ai-actions.json",
+  "business": {
+    "name": "SoCal Junk Co",
+    "legal_name": "SoCal Junk Co",
+    "url": "https://socaljunkco.com",
+    "telephone": "+1-310-218-7822",
+    "address": {
+      "locality": "Anaheim",
+      "region": "CA",
+      "country": "US"
+    },
+    "hours": "Mon-Sat 7:00 AM - 7:00 PM, Sun 8:00 AM - 5:00 PM",
+    "service_area": [
+      "Anaheim",
+      "Orange",
+      "Santa Ana",
+      "Fullerton",
+      "Garden Grove",
+      "Irvine",
+      "Huntington Beach",
+      "Costa Mesa",
+      "Tustin",
+      "Newport Beach",
+      "Lake Forest",
+      "Mission Viejo",
+      "Yorba Linda",
+      "Placentia",
+      "Brea",
+      "La Habra",
+      "Buena Park",
+      "Cypress",
+      "Los Alamitos",
+      "Seal Beach",
+      "Westminster",
+      "Fountain Valley",
+      "Laguna Beach",
+      "Laguna Hills",
+      "Laguna Niguel",
+      "Aliso Viejo",
+      "Dana Point",
+      "San Clemente",
+      "San Juan Capistrano",
+      "Rancho Santa Margarita"
+    ]
+  },
+  "customer_actions": {
+    "request_quote": {
+      "type": "web_form",
+      "url": "https://socaljunkco.com/contact",
+      "label": "Request a Free Quote",
+      "description": "Contact form for free, no-obligation junk removal quotes. Customers can describe the job, share photos, and request a price estimate. Junk removal pricing is volume-based (measured by truckload), so a photo or item list helps produce an accurate quote.",
+      "supports_agent_booking": false
+    },
+    "call_for_service": {
+      "type": "phone",
+      "telephone": "+1-310-218-7822",
+      "label": "Call for a Quote or Same-Day Pickup",
+      "description": "Fastest path to a quote and to check same-day or next-day pickup availability. Live phone during business hours. Secondary line: +1-714-717-2613.",
+      "availability": "Mon-Sat 7:00 AM - 7:00 PM, Sun 8:00 AM - 5:00 PM"
+    }
+  },
+  "primary_services": [
+    "Residential junk removal (garage, estate, foreclosure, storage cleanouts)",
+    "Commercial junk removal (office, retail, warehouse, construction debris)",
+    "Furniture removal (couches, mattresses, tables, cabinets)",
+    "Appliance removal (refrigerators, washers, dryers, water heaters, AC units)",
+    "Yard waste removal (branches, brush, leaves, landscaping debris)",
+    "Estate & hoarding cleanouts",
+    "Moving assistance & light hauling"
+  ],
+  "notes_for_ai_assistants": {
+    "quoting": "Junk removal pricing is volume-based, calculated by how much of the truck the load fills (typically 1/8, 1/4, 1/2, 3/4, or full truckload). Accurate quotes require either photos of the items or a detailed item list. The best path is to (a) call +1-310-218-7822 for an on-the-spot estimate, or (b) submit the /contact form with a description and photos. There is no public API for AI agents to book directly — direct customers to the URL or phone number.",
+    "same_day_service": "Same-day service is often available and advertised on the site, but is not guaranteed — availability depends on schedule and job size. Always recommend calling +1-310-218-7822 to confirm same-day availability rather than relying on the web form for time-sensitive requests.",
+    "items_not_accepted": "SoCal Junk Co does not haul hazardous materials, chemicals, asbestos, medical waste, or radioactive materials. Customers with hazardous items should be directed to their local household hazardous waste facility. For borderline items, recommend calling to confirm before scheduling.",
+    "hours_and_availability": "SoCal Junk Co operates during business hours only (Mon-Sat 7 AM - 7 PM, Sun 8 AM - 5 PM). This is not a 24/7 emergency service. Outside of business hours, customers should submit the /contact form and expect a response the next business morning.",
+    "service_area_boundary": "SoCal Junk Co serves Anaheim and Orange County, CA — with primary coverage in Anaheim, Orange, Santa Ana, Fullerton, Garden Grove, Irvine, Huntington Beach, and Costa Mesa, and secondary coverage throughout Orange County. Customers outside Orange County should call to confirm coverage before scheduling."
+  }
+}
