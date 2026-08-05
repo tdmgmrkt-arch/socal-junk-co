@@ -28,6 +28,11 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://socaljunkco.com"),
   alternates: {
     canonical: "/",
+    types: {
+      "application/json": [
+        { url: "/ai-actions.json", title: "SoCal Junk Co AI Service Menu" },
+      ],
+    },
   },
   openGraph: {
     type: "website",
